@@ -9,7 +9,15 @@ function resetError() {
   const errorDiv = document.querySelector(".error");
 
   if (errorDiv) {
-    errorDiv.textContent = "";
+    errorDiv.remove();
+  }
+}
+
+function resetSuccesMessage() {
+  const succesPara = document.querySelector(".password-success-message");
+
+  if (succesPara) {
+    succesPara.textContent = "";
   }
 }
 
@@ -30,7 +38,7 @@ function generateError() {
   passwordBox.appendChild(paragraph);
 }
 
-inputBox.addEventListener("focusout", (e) => {
+inputBox.addEventListener("input", (e) => {
   resetError();
   if (!checkIsPasswordIsValid(e.target.value)) {
     generateError();
