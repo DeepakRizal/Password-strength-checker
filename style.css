@@ -1,0 +1,34 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.error {
+  color: red;
+  max-width: 300px;
+}
+
+.password-box input {
+  padding: 5px 10px;
+  border-radius: 5px;
+  outline: none;
+}
+
+.password-success-message {
+  color: green;
+  font-size: 13px;
+}
+
+.check-strength {
+  padding: 5px 10px;
+  border-radius: 5px;
+}
