@@ -16,9 +16,7 @@ function resetError() {
 function resetSuccesMessage() {
   const succesPara = document.querySelector(".password-success-message");
 
-  if (succesPara) {
-    succesPara.textContent = "";
-  }
+  succesPara.textContent = "";
 }
 
 function checkIsPasswordIsValid(password) {
@@ -41,6 +39,7 @@ function generateError() {
 inputBox.addEventListener("input", (e) => {
   resetError();
   if (!checkIsPasswordIsValid(e.target.value)) {
+    resetSuccesMessage();
     generateError();
   }
 });
