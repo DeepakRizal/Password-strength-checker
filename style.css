@@ -14,13 +14,26 @@
 
 .error {
   color: red;
-  max-width: 300px;
+  max-width: 400px;
+  font-size: 14px;
+}
+
+.password-box {
+  display: flex;
+  gap: 5px;
+  flex-direction: column;
 }
 
 .password-box input {
   padding: 5px 10px;
   border-radius: 5px;
   outline: none;
+  border: none;
+}
+
+.password-input-container {
+  display: flex;
+  gap: 9px;
 }
 
 .password-success-message {
@@ -45,4 +58,15 @@
 .strength-bar {
   height: 100%;
   transition: width 0.3s ease;
+}
+
+.eye {
+  height: 20px;
+}
+
+.form-group {
+  border: 1px solid black;
+  padding: 5px 10px;
+  display: flex;
+  align-items: center;
 }

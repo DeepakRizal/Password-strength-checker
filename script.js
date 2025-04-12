@@ -5,6 +5,7 @@ const passwordSuccessMessage = document.querySelector(
   ".password-success-message"
 );
 const strengthMeter = document.querySelector(".strength-meter");
+const togglePassword = document.querySelector(".eye");
 
 function resetError() {
   const errorDiv = document.querySelector(".error");
@@ -104,4 +105,9 @@ checkStrength.addEventListener("click", () => {
   } else {
     generateError();
   }
+});
+
+togglePassword.addEventListener("click", () => {
+  const isPassword = inputBox.type === "password";
+  inputBox.type = isPassword ? "text" : "password";
 });
