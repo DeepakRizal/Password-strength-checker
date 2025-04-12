@@ -32,3 +32,17 @@
   padding: 5px 10px;
   border-radius: 5px;
 }
+
+.strength-meter {
+  height: 8px;
+  width: 100%;
+  background-color: #ddd;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+.strength-bar {
+  height: 100%;
+  transition: width 0.3s ease;
+}

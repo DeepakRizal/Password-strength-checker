@@ -4,6 +4,7 @@ const passwordBox = document.querySelector(".password-box");
 const passwordSuccessMessage = document.querySelector(
   ".password-success-message"
 );
+const strengthMeter = document.querySelector(".strength-meter");
 
 function resetError() {
   const errorDiv = document.querySelector(".error");
@@ -36,8 +37,59 @@ function generateError() {
   passwordBox.appendChild(paragraph);
 }
 
+function calculatePasswordStrength(password) {
+  let score = 0;
+
+  if (password.length >= 8) score++;
+  if (/[A-Z]/.test(password)) score++;
+  if (/[\d]/.test(password)) score++;
+  if (/[!@#$%^&*(),.?":{}|<>]/.test(password)) score++;
+
+  return score;
+}
+
+function updateStrengthMeter(score) {
+  strengthMeter.innerHTML = "";
+
+  const strengthBar = document.createElement("div");
+  strengthBar.classList.add("strength-bar");
+
+  let color = "";
+  let width = "";
+
+  switch (score) {
+    case 1:
+      color = "red";
+      width = "25%";
+      break;
+    case 2:
+      color = "orange";
+      width = "50%";
+      break;
+    case 3:
+      color = "yellowgreen";
+      width = "75%";
+      break;
+    case 4:
+      color = "green";
+      width = "100%";
+      break;
+    default:
+      color = "transparent";
+      width = "0%";
+  }
+  strengthBar.style.width = width;
+  strengthBar.style.backgroundColor = color;
+
+  strengthMeter.appendChild(strengthBar);
+}
+
 inputBox.addEventListener("input", (e) => {
   resetError();
+
+  const score = calculatePasswordStrength(e.target.value);
+  updateStrengthMeter(score);
+
   if (!checkIsPasswordIsValid(e.target.value)) {
     resetSuccesMessage();
     generateError();
